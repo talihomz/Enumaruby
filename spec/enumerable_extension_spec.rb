@@ -24,4 +24,22 @@ describe Enumerable do
     end
 
   end
+
+  describe "#my_each_with_index" do
+
+    it "doesn't modify original array" do
+      expected = [1,2,3,4]
+      actual = @test_array.my_each_with_index { |x, idx| x + 12 }
+
+      expect(actual).to eq(expected)
+    end
+
+    it "performs each operation using index" do
+      expected = [0,1,2,3]
+      actual = []
+      @test_array.my_each_with_index { |x, idx| actual << idx  }
+
+      expect(actual).to eq(expected)
+    end
+  end
 end
