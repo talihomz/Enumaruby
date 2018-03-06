@@ -22,4 +22,32 @@ module Enumerable
 
     results
   end
+
+  def my_inject(initial = self[0])
+    current = initial
+
+    self.my_each do |item|
+      next if initial == item
+      current = yield(current, item)
+    end
+
+    current
+  end
+
+  def my_count
+    count = 0
+    self.my_each do |item|
+      count += 1 if yield(item)
+    end
+
+    count
+  end
+
+  def my_all?
+    self.my_each do |item|
+      return false if !yield(item)
+    end
+
+    true
+  end
 end
