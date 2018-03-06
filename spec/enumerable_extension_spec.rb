@@ -42,4 +42,20 @@ describe Enumerable do
       expect(actual).to eq(expected)
     end
   end
+
+  describe "#my_select" do
+
+    it "doesn't modify original array" do
+      actual = @test_array.my_select { |x| x + 12 }
+
+      expect(actual).to eq(@test_array)
+    end
+
+    it "returns correct elements based on predicate given" do
+      expected = [1,3]
+      actual = @test_array.my_select { |x| x % 2 != 0 }
+
+      expect(actual).to eq(expected)
+    end
+  end
 end

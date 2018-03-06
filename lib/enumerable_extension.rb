@@ -12,4 +12,14 @@ module Enumerable
     end
     self
   end
+
+  def my_select
+    results = []
+
+    self.my_each do |item|
+      results << item if yield(item)
+    end
+
+    results
+  end
 end
