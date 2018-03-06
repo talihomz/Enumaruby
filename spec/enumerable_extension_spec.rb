@@ -123,12 +123,12 @@ describe Enumerable do
       end
     end
 
-    # context "given a block { |x, y| x.between?(1,3) }" do
-    #   it 'returns 3' do
-    #     actual = @test_array.my_count { |x, y| x.between?(1,3) }
+    context "given a block { |x| x.between?(1,4) }" do
+      it 'returns true' do
+        actual = @test_array.my_all? { |x| x.between?(1,4) }
 
-    #     expect(actual).to eq(3)
-    #   end
-    # end
+        expect(actual).to eq(true)
+      end
+    end
   end
 end
