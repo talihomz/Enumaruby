@@ -16,7 +16,7 @@ describe Enumerable do
       expect(actual).to eq(expected)
     end
 
-    it "doesn't modify original" do
+    it "doesn't modify original array" do
       expected = [1,2,3,4]
       actual = @test_array.my_each { |x| x + 12 }
 
