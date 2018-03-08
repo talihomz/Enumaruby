@@ -42,7 +42,6 @@ describe Enumerable do
   end
 
   describe "#my_select" do
-
     it "doesn't modify original array" do
       @test_array.my_select { |x| x + 12 }
 
