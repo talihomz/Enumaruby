@@ -52,9 +52,7 @@ describe Enumerable do
     end
 
     it "returns correct elements based on predicate given" do
-      result = subject.my_select { |x| x % 2 != 0 }
-
-      expect(result).to eq([1,3])
+      expect(subject.my_select { |x| x % 2 != 0 }).to eq([1,3])
     end
   end
 
@@ -68,17 +66,13 @@ describe Enumerable do
 
     context "given a block { |x, y| x + y }" do
       it 'returns 10' do
-        result = subject.my_inject { |x, y| x + y }
-
-        expect(result).to eq(10)
+        expect(subject.my_inject { |x, y| x + y }).to eq(10)
       end
     end
 
     context "given a block { |x, y| x * y }" do
       it 'returns 24' do
-        result = subject.my_inject { |x, y| x * y }
-
-        expect(result).to eq(24)
+        expect(subject.my_inject { |x, y| x * y }).to eq(24)
       end
     end
   end
@@ -93,17 +87,13 @@ describe Enumerable do
 
     context "given a block { |x| x > 2 }" do
       it 'returns 2' do
-        result = subject.my_count { |x| x > 2 }
-
-        expect(result).to eq(2)
+        expect(subject.my_count { |x| x > 2 }).to eq(2)
       end
     end
 
     context "given a block { |x| x.between?(1,3) }" do
       it 'returns 3' do
-        result = subject.my_count { |x| x.between?(1,3) }
-
-        expect(result).to eq(3)
+        expect(subject.my_count { |x| x.between?(1,3) }).to eq(3)
       end
     end
   end
@@ -118,17 +108,13 @@ describe Enumerable do
 
     context "given a block { |x| x > 2 }" do
       it 'returns false' do
-        result = subject.my_all? { |x| x > 2 }
-
-        expect(result).to eq(false)
+        expect(subject.my_all? { |x| x > 2 }).to eq(false)
       end
     end
 
     context "given a block { |x| x.between?(1,4) }" do
       it 'returns true' do
-        result = subject.my_all? { |x| x.between?(1,4) }
-
-        expect(result).to eq(true)
+        expect(subject.my_all? { |x| x.between?(1,4) }).to eq(true)
       end
     end
   end
