@@ -13,11 +13,10 @@ describe Enumerable do
     end
 
     it "performs specified operation on all elements" do
-      expected = [2,3,4,5]
       actual = []
       subject.my_each { |x| actual << x + 1 }
 
-      expect(actual).to eq(expected)
+      expect(actual).to eq([2,3,4,5])
     end
 
   end
@@ -31,11 +30,10 @@ describe Enumerable do
     end
 
     it "performs each operation using index" do
-      expected = [0,1,2,3]
       actual = []
       subject.my_each_with_index { |x, idx| actual << idx  }
 
-      expect(actual).to eq(expected)
+      expect(actual).to eq([0,1,2,3])
     end
   end
 
@@ -47,10 +45,9 @@ describe Enumerable do
     end
 
     it "returns correct elements based on predicate given" do
-      expected = [1,3]
       actual = subject.my_select { |x| x % 2 != 0 }
 
-      expect(actual).to eq(expected)
+      expect(actual).to eq([1,3])
     end
   end
 
