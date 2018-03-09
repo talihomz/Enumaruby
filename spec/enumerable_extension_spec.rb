@@ -64,13 +64,7 @@ describe Enumerable do
       expect(subject).to eq([1,2,3,4])
     end
 
-    context "given a block { |x, y| x + y }" do
-      it 'returns 10' do
-        expect(subject.my_inject { |x, y| x + y }).to eq(10)
-      end
-    end
-
-    context "given a block { |x, y| x * y }" do
+    context "returns a sumaric value of some operation performed on all elements" do
       it 'returns 24' do
         expect(subject.my_inject { |x, y| x * y }).to eq(24)
       end
@@ -85,13 +79,7 @@ describe Enumerable do
       expect(subject).to eq([1,2,3,4])
     end
 
-    context "given a block { |x| x > 2 }" do
-      it 'returns 2' do
-        expect(subject.my_count { |x| x > 2 }).to eq(2)
-      end
-    end
-
-    context "given a block { |x| x.between?(1,3) }" do
+    context "counts elements based on a given predicate" do
       it 'returns 3' do
         expect(subject.my_count { |x| x.between?(1,3) }).to eq(3)
       end
@@ -106,13 +94,13 @@ describe Enumerable do
       expect(subject).to eq([1,2,3,4])
     end
 
-    context "given a block { |x| x > 2 }" do
+    context "when all elements don't meet the predicate" do
       it 'returns false' do
         expect(subject.my_all? { |x| x > 2 }).to eq(false)
       end
     end
 
-    context "given a block { |x| x.between?(1,4) }" do
+    context "when all elements meet the predicate" do
       it 'returns true' do
         expect(subject.my_all? { |x| x.between?(1,4) }).to eq(true)
       end
