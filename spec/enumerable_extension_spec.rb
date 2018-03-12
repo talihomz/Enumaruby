@@ -36,6 +36,13 @@ describe Enumerable do
       expect(result).to eq([0,1,2,3])
     end
 
+    it "performs specified operation on all elements" do
+      result = []
+      subject.my_each_with_index { |x| result << x + 1 }
+
+      expect(result).to eq([2,3,4,5])
+    end
+
     it "performs each operation on specific indices" do
       result = []
       subject.my_each_with_index { |x, idx| result << idx if idx.even?  }
